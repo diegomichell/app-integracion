@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import toJson from 'enzyme-to-json';
-import {CourseForm} from '../CourseForm';
+import {EmployeeForm} from '../EmployeeForm';
 
 
 
@@ -17,11 +17,11 @@ function setup(heading) {
         handleCancel: jest.fn(),
     };
 
-    return shallow(<CourseForm {...props}/>);
+    return shallow(<EmployeeForm {...props}/>);
 }
 
 
-describe('CourseForm.test.js', () => {
+describe('EmployeeForm.test.js', () => {
 
     it('renders without crashing', () => {
         const wrapper = setup('Add');

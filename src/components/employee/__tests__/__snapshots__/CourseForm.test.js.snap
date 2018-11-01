@@ -1,4 +1,4 @@
-exports[`CourseForm.test.js renders without crashing 1`] = `
+exports[`EmployeeForm.test.js renders without crashing 1`] = `
 <form>
   <h1>
     Add

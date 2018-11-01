@@ -1,4 +1,4 @@
-exports[`CourseList.test.js renders without crashing 1`] = `
+exports[`EmployeeList.test.js renders without crashing 1`] = `
 <BootstrapTable
   bodyContainerClass={null}
   bordered={false}

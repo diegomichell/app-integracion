@@ -2,10 +2,10 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import createMemoryHistory from 'history/createMemoryHistory';
-import { CourseListContainer } from '../CourseListContainer';
+import { EmployeeListContainer } from '../EmployeeListContainer';
 
 
-describe('CourseListContainer.test.js', () => {
+describe('EmployeeListContainer.test.js', () => {
 
     it('renders without crashing', () => {
         const props = {
@@ -16,7 +16,7 @@ describe('CourseListContainer.test.js', () => {
             history: createMemoryHistory()
         };
 
-        const wrapper = shallow(<CourseListContainer {...props} />);
+        const wrapper = shallow(<EmployeeListContainer {...props} />);
 
         expect(wrapper).toHaveLength(1);
 

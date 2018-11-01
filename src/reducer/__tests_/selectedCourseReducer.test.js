@@ -1,5 +1,5 @@
 import selectedCourseReducer from '../selectedCourseReducer';
-import * as CourseAction from '../../action/CourseAction';
+import * as CourseAction from '../../action/EmployeeAction';
 import * as ActionType from '../../action/ActionType';
 
 
@@ -18,14 +18,14 @@ describe('selectedCourseReducer.test.js', ()  => {
     });
 
 
-    it(`should get a particular course when passed ${ActionType.GET_COURSE_RESPONSE}`, () => {
+    it(`should get a particular course when passed ${ActionType.GET_EMPLOYEE_RESPONSE}`, () => {
         const initialState = {
             course: undefined
         };
 
         const course = {title: 'B'};
 
-        const action = CourseAction.getCourseResponse(course);
+        const action = CourseAction.getEmployeeResponse(course);
 
         const newState = selectedCourseReducer(initialState, action);
 

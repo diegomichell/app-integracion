@@ -2,8 +2,6 @@ import _ from 'lodash';
 import * as ActionType from '../action/ActionType';
 import initialState from './initialState';
 
-
-
 const apiReducer = (state = initialState.apiReducer, action) => {
     if (action.type === ActionType.API_CALL_BEGIN) {
         return {
@@ -19,13 +17,8 @@ const apiReducer = (state = initialState.apiReducer, action) => {
     return state;
 };
 
-
-
 function isApiCallFinished(type) {
     return _.endsWith(type, '_RESPONSE');
 }
-
-
-
 
 export default apiReducer;

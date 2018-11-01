@@ -1,7 +1,7 @@
 import thunk from 'redux-thunk';
 import nock from 'nock';
 import configureMockStore from 'redux-mock-store';
-import * as CourseActions from '../CourseAction';
+import * as CourseActions from '../EmployeeAction';
 import * as ActionType from '../ActionType';
 
 
@@ -9,14 +9,14 @@ import * as ActionType from '../ActionType';
 describe('CourseAction.test.js', () => {
 
     describe('getCoursesResponseAction Creator', () => {
-        it(`should create action ${ActionType.GET_COURSES_RESPONSE}`, () => {
+        it(`should create action ${ActionType.GET_EMPLOYEES_RESPONSE}`, () => {
             const courses = [{ title: 'Learn reactjs redux' }];
             const expectedAction = {
-                type: ActionType.GET_COURSES_RESPONSE,
+                type: ActionType.GET_EMPLOYEES_RESPONSE,
                 courses: courses
             };
 
-            const actualAction = CourseActions.getCoursesResponse(courses);
+            const actualAction = CourseActions.getEmployeesResponse(courses);
 
             expect(actualAction).toEqual(expectedAction);
         });
@@ -24,13 +24,13 @@ describe('CourseAction.test.js', () => {
 
 
     describe('addNewCourseResponseAction Creator', () => {
-        it(`should create action ${ActionType.ADD_NEW_COURSE_RESPONSE}`, () => {
+        it(`should create action ${ActionType.ADD_NEW_EMPLOYEE_RESPONSE}`, () => {
             const course = { title: 'Learn reactjs redux' };
             const expectedAction = {
-                type: ActionType.ADD_NEW_COURSE_RESPONSE
+                type: ActionType.ADD_NEW_EMPLOYEE_RESPONSE
             };
 
-            const actualAction = CourseActions.addNewCourseResponse(course);
+            const actualAction = CourseActions.addNewEmployeeResponse(course);
 
             expect(actualAction).toEqual(expectedAction);
         });
@@ -38,13 +38,13 @@ describe('CourseAction.test.js', () => {
 
 
     describe('updateExistingCourseResponseAction Creator', () => {
-        it(`should create action ${ActionType.UPDATE_EXISTING_COURSE_RESPONSE}`, () => {
+        it(`should create action ${ActionType.UPDATE_EXISTING_EMPLOYEE_RESPONSE}`, () => {
             const course = { title: 'Learn reactjs redux' };
             const expectedAction = {
-                type: ActionType.UPDATE_EXISTING_COURSE_RESPONSE
+                type: ActionType.UPDATE_EXISTING_EMPLOYEE_RESPONSE
             };
 
-            const actualAction = CourseActions.updateExistingCourseResponse(course);
+            const actualAction = CourseActions.updateExistingEmployeeResponse(course);
 
             expect(actualAction).toEqual(expectedAction);
         });
@@ -52,14 +52,14 @@ describe('CourseAction.test.js', () => {
 
 
     describe('getCourseResponseAction Creator', () => {
-        it(`should create action ${ActionType.GET_COURSE_RESPONSE}`, () => {
+        it(`should create action ${ActionType.GET_EMPLOYEE_RESPONSE}`, () => {
             const course = { title: 'Learn reactjs redux' };
             const expectedAction = {
-                type: ActionType.GET_COURSE_RESPONSE,
+                type: ActionType.GET_EMPLOYEE_RESPONSE,
                 course: course
             };
 
-            const actualAction = CourseActions.getCourseResponse(course);
+            const actualAction = CourseActions.getEmployeeResponse(course);
 
             expect(actualAction).toEqual(expectedAction);
         });
@@ -68,9 +68,9 @@ describe('CourseAction.test.js', () => {
 
 
     describe('deleteCourseResponseAction Creator', () => {
-        it(`should create action ${ActionType.DELETE_COURSE_RESPONSE}`, () => {
+        it(`should create action ${ActionType.DELETE_EMPLOYEE_RESPONSE}`, () => {
             const expectedAction = {
-                type: ActionType.DELETE_COURSE_RESPONSE
+                type: ActionType.DELETE_EMPLOYEE_RESPONSE
             };
 
             const actualAction = CourseActions.deleteCourseResponse();
@@ -94,7 +94,7 @@ describe('CourseAction.test.js', () => {
             const expectedActions = [
                 { type: ActionType.API_CALL_BEGIN },
                 {
-                    type: ActionType.GET_COURSES_RESPONSE,
+                    type: ActionType.GET_EMPLOYEES_RESPONSE,
                     body: {
                         courses: [
                             { id: 1, title: 'Java Clean Code' }
@@ -110,7 +110,7 @@ describe('CourseAction.test.js', () => {
                     const actions = store.getActions();
 
                     expect(actions[0].type).toEqual(ActionType.API_CALL_BEGIN);
-                    expect(actions[1].type).toEqual(ActionType.GET_COURSES_RESPONSE);
+                    expect(actions[1].type).toEqual(ActionType.GET_EMPLOYEES_RESPONSE);
                     done();
                 });
         });
@@ -118,7 +118,7 @@ describe('CourseAction.test.js', () => {
     });
 
 
-    describe('saveCourseAction Thunk', () => {
+    describe('saveEmployeeAction Thunk', () => {
         afterEach(() => {
             nock.cleanAll();
         });
@@ -126,17 +126,17 @@ describe('CourseAction.test.js', () => {
         it('should update existing course', (done) => {
             const expectedActions = [
                 { type: ActionType.API_CALL_BEGIN },
-                { type: ActionType.UPDATE_EXISTING_COURSE_RESPONSE}
+                { type: ActionType.UPDATE_EXISTING_EMPLOYEE_RESPONSE}
             ];
 
             const store = mockStore({ course: [] }, expectedActions, done);
             const course = { id: 1, title: 'Learn reactjs redux' };
-            store.dispatch(CourseActions.saveCourseAction(course))
+            store.dispatch(CourseActions.saveEmployeeAction(course))
                 .then(() => {
                     const actions = store.getActions();
 
                     expect(actions[0].type).toEqual(ActionType.API_CALL_BEGIN);
-                    expect(actions[1].type).toEqual(ActionType.UPDATE_EXISTING_COURSE_RESPONSE);
+                    expect(actions[1].type).toEqual(ActionType.UPDATE_EXISTING_EMPLOYEE_RESPONSE);
                     done();
                 });
         });
@@ -145,17 +145,17 @@ describe('CourseAction.test.js', () => {
         it('should add a new course', (done) => {
             const expectedActions = [
                 { type: ActionType.API_CALL_BEGIN },
-                { type: ActionType.ADD_NEW_COURSE_RESPONSE}
+                { type: ActionType.ADD_NEW_EMPLOYEE_RESPONSE}
             ];
 
             const store = mockStore({ course: [] }, expectedActions, done);
             const course = { title: 'Learn reactjs redux' };
-            store.dispatch(CourseActions.saveCourseAction(course))
+            store.dispatch(CourseActions.saveEmployeeAction(course))
                 .then(() => {
                     const actions = store.getActions();
 
                     expect(actions[0].type).toEqual(ActionType.API_CALL_BEGIN);
-                    expect(actions[1].type).toEqual(ActionType.ADD_NEW_COURSE_RESPONSE);
+                    expect(actions[1].type).toEqual(ActionType.ADD_NEW_EMPLOYEE_RESPONSE);
                     done();
                 });
         });
@@ -164,7 +164,7 @@ describe('CourseAction.test.js', () => {
 
 
 
-    describe('getCourseAction Thunk', () => {
+    describe('getEmployeeAction Thunk', () => {
         afterEach(() => {
             nock.cleanAll();
         });
@@ -175,7 +175,7 @@ describe('CourseAction.test.js', () => {
             const expectedActions = [
                 { type: ActionType.API_CALL_BEGIN },
                 {
-                    type: ActionType.GET_COURSE_RESPONSE,
+                    type: ActionType.GET_EMPLOYEE_RESPONSE,
                     body: {
                         course: findThisCourse
                     }
@@ -183,12 +183,12 @@ describe('CourseAction.test.js', () => {
             ];
 
             const store = mockStore({ course: {} }, expectedActions, done);
-            store.dispatch(CourseActions.getCourseAction(1))
+            store.dispatch(CourseActions.getEmployeeAction(1))
                 .then(() => {
                     const actions = store.getActions();
 
                     expect(actions[0].type).toEqual(ActionType.API_CALL_BEGIN);
-                    expect(actions[1].type).toEqual(ActionType.GET_COURSE_RESPONSE);
+                    expect(actions[1].type).toEqual(ActionType.GET_EMPLOYEE_RESPONSE);
                     done();
                 });
         });
@@ -205,7 +205,7 @@ describe('CourseAction.test.js', () => {
             const expectedActions = [
                 { type: ActionType.API_CALL_BEGIN },
                 {
-                    type: ActionType.DELETE_COURSE_RESPONSE
+                    type: ActionType.DELETE_EMPLOYEE_RESPONSE
                 }
             ];
 
@@ -215,7 +215,7 @@ describe('CourseAction.test.js', () => {
                     const actions = store.getActions();
 
                     expect(actions[0].type).toEqual(ActionType.API_CALL_BEGIN);
-                    expect(actions[1].type).toEqual(ActionType.DELETE_COURSE_RESPONSE);
+                    expect(actions[1].type).toEqual(ActionType.DELETE_EMPLOYEE_RESPONSE);
                     done();
                 });
         });

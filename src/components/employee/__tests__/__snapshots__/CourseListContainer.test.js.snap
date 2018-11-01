@@ -1,4 +1,4 @@
-exports[`CourseListContainer.test.js renders without crashing 1`] = `
+exports[`EmployeeListContainer.test.js renders without crashing 1`] = `
 <div
   className="container-fluid">
   <div
@@ -52,7 +52,7 @@ exports[`CourseListContainer.test.js renders without crashing 1`] = `
     className="row">
     <div
       className="col">
-      <CourseList
+      <EmployeeList
         courses={
           Array [
             Object {

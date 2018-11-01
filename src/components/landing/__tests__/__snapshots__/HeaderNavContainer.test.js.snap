@@ -25,7 +25,7 @@ exports[`HeaderNavContainer.test.js renders without crashing 1`] = `
         <NavLink
           activeClassName="active"
           className="nav-item nav-link"
-          to="/courses">
+          to="/employees">
           Courses
         </NavLink>
         <NavLink

@@ -1,5 +1,5 @@
 import coursesReducer from '../coursesReducer';
-import * as CourseAction from '../../action/CourseAction';
+import * as CourseAction from '../../action/EmployeeAction';
 import * as ActionType from '../../action/ActionType';
 
 
@@ -19,14 +19,14 @@ describe('coursesReducer.test.js', ()  => {
 
 
 
-    it(`should get all courses when passed ${ActionType.GET_COURSES_RESPONSE}`, () => {
+    it(`should get all courses when passed ${ActionType.GET_EMPLOYEES_RESPONSE}`, () => {
         const initialState = {
             courses: []
         };
 
         const courses = [{id: 1, title: 'A'}, {id: 2, title: 'B'}];
 
-        const action = CourseAction.getCoursesResponse(courses);
+        const action = CourseAction.getEmployeesResponse(courses);
 
         const newState = coursesReducer(initialState, action);
 

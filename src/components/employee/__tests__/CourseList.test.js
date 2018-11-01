@@ -1,10 +1,10 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import toJson from 'enzyme-to-json';
-import CourseList from '../CourseList';
+import EmployeeList from '../EmployeeList';
 
 
-describe('CourseList.test.js', () => {
+describe('EmployeeList.test.js', () => {
 
     it('renders without crashing', () => {
         const props = {
@@ -15,7 +15,7 @@ describe('CourseList.test.js', () => {
             handleRowSelect: jest.fn()            
         };
         
-        const wrapper = shallow(<CourseList {...props}/>);
+        const wrapper = shallow(<EmployeeList {...props}/>);
 
         expect(wrapper).toHaveLength(1);
         expect(wrapper.find('BootstrapTable')).toHaveLength(1);

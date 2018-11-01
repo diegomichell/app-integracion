@@ -1,4 +1,4 @@
-exports[`AddOrEditCourseContainer.test.js renders without crashing 1`] = `
+exports[`AddOrEditEmployeeContainer.test.js renders without crashing 1`] = `
 <div
   className="container">
   <ReduxForm

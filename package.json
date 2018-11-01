@@ -24,6 +24,7 @@
     "react-router-dom": "^4.1.1",
     "redux": "^3.7.0",
     "redux-form": "^6.8.0",
+    "redux-form-input-masks": "^1.2.0",
     "redux-thunk": "^2.2.0",
     "tether": "^1.4.0",
     "toastr": "^2.1.2"

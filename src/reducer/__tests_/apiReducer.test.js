@@ -1,7 +1,7 @@
 import apiReducer from '../apiReducer';
 import * as ActionType from '../../action/ActionType';
 import * as ApiAction from '../../action/ApiAction';
-import * as CourseAction from '../../action/CourseAction';
+import * as CourseAction from '../../action/EmployeeAction';
 
 
 
@@ -31,9 +31,9 @@ describe('apiReducer.test.js', () => {
     });
 
 
-    it(`has apiCallsInProgress = 0 when passed ${ActionType.GET_COURSE_RESPONSE}`, () => {
+    it(`has apiCallsInProgress = 0 when passed ${ActionType.GET_EMPLOYEE_RESPONSE}`, () => {
         const state = { apiCallsInProgress: 1 };
-        const action = CourseAction.getCourseResponse();
+        const action = CourseAction.getEmployeeResponse();
 
         const newState = apiReducer(state, action);
 

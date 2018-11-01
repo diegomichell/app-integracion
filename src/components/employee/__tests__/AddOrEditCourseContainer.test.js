@@ -1,15 +1,15 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import toJson from 'enzyme-to-json';
-import {AddOrEditCourseContainer} from '../AddOrEditCourseContainer';
+import {AddOrEditEmployeeContainer} from '../AddOrEditEmployeeContainer';
 
 
-describe('AddOrEditCourseContainer.test.js', () => {
+describe('AddOrEditEmployeeContainer.test.js', () => {
 
     it('renders without crashing', () => {
         const props = {
             action: {
-                getCourseAction: jest.fn(),
+                getEmployeeAction: jest.fn(),
                 getAuthorsAction: jest.fn()
             },
             authors:[],
@@ -17,7 +17,7 @@ describe('AddOrEditCourseContainer.test.js', () => {
             match: {params: {id:'1'}}
         };
 
-        const wrapper = shallow(<AddOrEditCourseContainer {...props}/>);
+        const wrapper = shallow(<AddOrEditEmployeeContainer {...props}/>);
         expect(wrapper.length).toEqual(1);
 
         const tree = toJson(wrapper);
